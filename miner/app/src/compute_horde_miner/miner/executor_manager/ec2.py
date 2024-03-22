@@ -14,7 +14,7 @@ class EC2ExecutorManager(BaseExecutorManager):
     executor_image = settings.EXECUTOR_IMAGE
     launch_template_name = 'computehorde-executors'
 
-    async def reserve_executor(self, token):
+    async def _reserve_executor(self, token):
 
         # Attempt to launch spot instances first
         success = self.create_fleet_request('spot', token)
@@ -24,6 +24,9 @@ class EC2ExecutorManager(BaseExecutorManager):
 
         if not success:
             raise ExecutorUnavailable('Failed to create EC2 instance')
+
+        # Don't keep track of running executors
+        return None
 
     def create_fleet_request(self, capacity_type, token):
         resp = ec2_client.create_fleet(
@@ -82,3 +85,9 @@ class EC2ExecutorManager(BaseExecutorManager):
 
         logging.error("Failed to create fleet: %s", resp)
         return False
+
+    async def _kill_executor(self, executor):
+        pass
+
+    async def _wait_for_executor(self, executor, timeout):
+        pass
