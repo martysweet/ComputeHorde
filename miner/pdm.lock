@@ -5,7 +5,7 @@
 groups = ["default", "format", "lint", "security_check", "test", "type_check"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:ee882abffab259bfd32431319b6caca5474ddf30215e0d644b6d73995f9162a5"
+content_hash = "sha256:06a6918d8afadcccca193b5a8a1a2b475680b4710264d1742ec9fb672d91475c"
 
 [[package]]
 name = "aiohttp"
@@ -289,7 +289,7 @@ files = [
 
 [[package]]
 name = "bittensor"
-version = "6.8.1"
+version = "6.8.2"
 requires_python = ">=3.8"
 summary = "bittensor"
 groups = ["default"]
@@ -330,8 +330,8 @@ dependencies = [
     "wheel",
 ]
 files = [
-    {file = "bittensor-6.8.1-py3-none-any.whl", hash = "sha256:fd1dcc2243916af21f20901f0d9a6e673408f9371c634811b99f652afd52a481"},
-    {file = "bittensor-6.8.1.tar.gz", hash = "sha256:f881e6c6fb9e720ae1e8ef888f9a708485fb17ab45dfb137f9dfb1808c7296f4"},
+    {file = "bittensor-6.8.2-py3-none-any.whl", hash = "sha256:83810745380af946e6a7e8c26f03f8c585e3fa0509ea82bd757cbf45f3ce0be0"},
+    {file = "bittensor-6.8.2.tar.gz", hash = "sha256:0bb4da7dec4f66cc7a81c952825323d17c0c0d960bafe9d29dee5f854f4b99a7"},
 ]
 
 [[package]]
@@ -355,6 +355,38 @@ files = [
     {file = "black-23.7.0-cp311-cp311-win_amd64.whl", hash = "sha256:7f3bf2dec7d541b4619b8ce526bda74a6b0bffc480a163fed32eb8b3c9aed8ad"},
     {file = "black-23.7.0-py3-none-any.whl", hash = "sha256:9fd59d418c60c0348505f2ddf9609c1e1de8e7493eab96198fc89d9f865e7a96"},
     {file = "black-23.7.0.tar.gz", hash = "sha256:022a582720b0d9480ed82576c920a8c1dde97cc38ff11d8d8859b3bd6ca9eedb"},
+]
+
+[[package]]
+name = "boto3"
+version = "1.34.68"
+requires_python = ">=3.8"
+summary = "The AWS SDK for Python"
+groups = ["default"]
+dependencies = [
+    "botocore<1.35.0,>=1.34.68",
+    "jmespath<2.0.0,>=0.7.1",
+    "s3transfer<0.11.0,>=0.10.0",
+]
+files = [
+    {file = "boto3-1.34.68-py3-none-any.whl", hash = "sha256:14f1e23b3f83ec365628a6ef849f1038b4c7338c4fabff159007c711b8147efc"},
+    {file = "boto3-1.34.68.tar.gz", hash = "sha256:00a7cff4887e8a46c8b2ce438f33d5f87cf7812f303227adc0266f28338af6d5"},
+]
+
+[[package]]
+name = "botocore"
+version = "1.34.68"
+requires_python = ">=3.8"
+summary = "Low-level, data-driven core of boto 3."
+groups = ["default"]
+dependencies = [
+    "jmespath<2.0.0,>=0.7.1",
+    "python-dateutil<3.0.0,>=2.1",
+    "urllib3!=2.2.0,<3,>=1.25.4; python_version >= \"3.10\"",
+]
+files = [
+    {file = "botocore-1.34.68-py3-none-any.whl", hash = "sha256:3ad0ec67f78beecc039c3c31c93a83181e30b6f789261bdbb9f5c8e8dc551812"},
+    {file = "botocore-1.34.68.tar.gz", hash = "sha256:e7ae9d69cc3e7b31d926e6a1a9ae673ba02da263e35cf12ff2bae35a21755cc6"},
 ]
 
 [[package]]
@@ -604,7 +636,8 @@ path = "../compute_horde"
 summary = ""
 groups = ["default"]
 dependencies = [
-    "bittensor<7.0.0,>=6.5.0",
+    "bittensor==6.8.2",
+    "more-itertools>=10.2.0",
     "pydantic<2.0.0,>=1.7.4",
     "websockets<13.0,>=12.0",
 ]
@@ -1285,6 +1318,17 @@ dependencies = [
 files = [
     {file = "Jinja2-3.1.3-py3-none-any.whl", hash = "sha256:7d6d50dd97d52cbc355597bd845fabfbac3f551e1f99619e39a35ce8c370b5fa"},
     {file = "Jinja2-3.1.3.tar.gz", hash = "sha256:ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"},
+]
+
+[[package]]
+name = "jmespath"
+version = "1.0.1"
+requires_python = ">=3.7"
+summary = "JSON Matching Expressions"
+groups = ["default"]
+files = [
+    {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
+    {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
 ]
 
 [[package]]
@@ -2387,6 +2431,20 @@ files = [
     {file = "ruff-0.2.2-py3-none-win_amd64.whl", hash = "sha256:cc9a91ae137d687f43a44c900e5d95e9617cb37d4c989e462980ba27039d239d"},
     {file = "ruff-0.2.2-py3-none-win_arm64.whl", hash = "sha256:c9d15fc41e6054bfc7200478720570078f0b41c9ae4f010bcc16bd6f4d1aacdd"},
     {file = "ruff-0.2.2.tar.gz", hash = "sha256:e62ed7f36b3068a30ba39193a14274cd706bc486fad521276458022f7bccb31d"},
+]
+
+[[package]]
+name = "s3transfer"
+version = "0.10.1"
+requires_python = ">= 3.8"
+summary = "An Amazon S3 Transfer Manager"
+groups = ["default"]
+dependencies = [
+    "botocore<2.0a.0,>=1.33.2",
+]
+files = [
+    {file = "s3transfer-0.10.1-py3-none-any.whl", hash = "sha256:ceb252b11bcf87080fb7850a224fb6e05c8a776bab8f2b64b7f25b969464839d"},
+    {file = "s3transfer-0.10.1.tar.gz", hash = "sha256:5683916b4c724f799e600f41dd9e10a9ff19871bf87623cc8f491cb4f5fa0a19"},
 ]
 
 [[package]]
